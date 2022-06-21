@@ -2,6 +2,10 @@ package com.micropos.products.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.micropos.products.model.Product;
+import com.netflix.discovery.converters.Auto;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -15,15 +19,21 @@ import java.util.LinkedList;
 import java.util.List;
 
 //@Repository
+//@Component
 public class SQLRepository implements ProductRepository {
 
     private List<Product> products = null;
 
-    static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/Amazon?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-    static final String USER = "root";
-    static final String PASS = "123456";
-    static final String DATABASE_TABLE_NAME = "meta_Gift_Cards";
+    @Autowired
+    private String JDBC_DRIVER;
+    @Autowired
+    private String DB_URL;
+    @Autowired
+    private String USER;
+    @Autowired
+    private String PASS;
+    @Autowired
+    private String DATABASE_TABLE_NAME;
 
     private Connection connection = null;
     private int fetchedItems = 0;

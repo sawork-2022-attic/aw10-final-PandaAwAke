@@ -11,28 +11,38 @@ import reactor.core.publisher.Mono;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class ProductServiceImpl implements ProductService {
 
+    @Autowired
     private ProductRepository productRepository;
-
-    public ProductServiceImpl(@Autowired ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
 
     @Override
     public List<Product> products() {
-        return productRepository.allProducts().timeout(Duration.ofMillis(10000)).collectList().block();
+        return productRepository.allProducts().timeout(Duration.ofMillis(5000)).collectList().block();
     }
 
     @Override
     public Product getProduct(String id) {
-        return productRepository.findProduct(id).timeout(Duration.ofMillis(5000)).block();
+        Product invalidProduct = new Product();
+
+        Product result = productRepository.findProduct(id)
+                .onErrorReturn(NoSuchElementException.class, invalidProduct)
+                .onErrorReturn(IndexOutOfBoundsException.class, invalidProduct)
+                .timeout(Duration.ofMillis(5000)).block();
+
+        if (result == invalidProduct) {
+            return null;
+        }
+        return result;
     }
 
     @Override
     public Product randomProduct() {
-        return null;
+        List<Product> productList = products();
+        return productList.get(ThreadLocalRandom.current().nextInt(0, productList.size()));
     }
 }
