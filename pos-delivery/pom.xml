@@ -12,13 +12,6 @@
   <artifactId>pos-delivery</artifactId>
 
   <dependencies>
-    <!-- Spring Boot -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-
     <!-- Spring Cloud -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
@@ -31,11 +24,11 @@
       <version>1.18.22</version>
     </dependency>
 
-    <!-- Integration -->
-    <dependency>
-      <groupId>org.springframework.integration</groupId>
-      <artifactId>spring-integration-http</artifactId>
-    </dependency>
+<!--    &lt;!&ndash; Integration &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.springframework.integration</groupId>-->
+<!--      <artifactId>spring-integration-http</artifactId>-->
+<!--    </dependency>-->
 
     <!-- Stream -->
     <dependency>
