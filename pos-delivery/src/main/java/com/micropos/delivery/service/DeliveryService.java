@@ -31,6 +31,7 @@ public class DeliveryService implements Consumer<Order> {
      */
     @Override
     public void accept(Order order) {
+        System.out.println("accepted!");
         if (order != null) {
             System.out.println("Order received: " + order.getId() + ", timestamp: " + order.getTimestamp());
             receivedOrders.put(order.getId(), order);

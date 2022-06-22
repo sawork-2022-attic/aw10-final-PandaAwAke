@@ -4,3 +4,17 @@ server:
 spring:
   application:
     name: delivery-service
+  cloud:
+    stream:
+      function:
+        definition: handleOrder
+        bindings:
+          handleOrder-in-0: order-service
+      bindings:
+        order-service:
+          destination: order-service
+#      rabbit:
+#        bindings:
+#          output:
+#            consumer:
+#              declare-exchange: false
