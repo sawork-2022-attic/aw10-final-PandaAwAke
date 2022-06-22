@@ -29,19 +29,19 @@ public class PosController {
 
     private RemoteServices remoteServices;
 
-    private final List<Product> products;
+    private List<Product> products;
 
 
     public PosController() {
         ApplicationContext context = new ClassPathXmlApplicationContext("service_settings.xml");
         remoteServices = context.getBean("RemoteServices", RemoteServices.class);
-
-        products = remoteServices.getProducts();
     }
 
 
     @GetMapping("/")
     public String pos(Model model) {
+        products = remoteServices.getProducts();
+
         setDefaultModelAttributes(model);
         return "index";
     }
@@ -51,6 +51,8 @@ public class PosController {
             @RequestParam(name = "pid") String pid,
             @RequestParam(name = "amount") int amount,
             Model model) {
+        products = remoteServices.getProducts();
+
         for (Product product : products) {
             if (product.getId().equals(pid)) {
                 cartsService.addProduct(getSessionCart(), product, amount);
@@ -64,6 +66,7 @@ public class PosController {
 
     @GetMapping("/remove")
     public String removeProduct(@RequestParam(value = "pid") String pid, Model model) {
+        products = remoteServices.getProducts();
         cartsService.removeProduct(getSessionCart(), pid);
 
         setDefaultModelAttributes(model);
@@ -72,6 +75,7 @@ public class PosController {
 
     @GetMapping("/clear")
     public String clearCart(Model model) {
+        products = remoteServices.getProducts();
         cartsService.clearCart(getSessionCart());
 
         setDefaultModelAttributes(model);
