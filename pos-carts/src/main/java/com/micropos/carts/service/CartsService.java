@@ -2,8 +2,6 @@ package com.micropos.carts.service;
 
 import com.micropos.carts.model.Cart;
 
-import java.util.List;
-
 public interface CartsService {
 
     public Cart getCart();

@@ -1,4 +1,4 @@
-package com.micropos.carts.model;
+package com.micropos.products.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

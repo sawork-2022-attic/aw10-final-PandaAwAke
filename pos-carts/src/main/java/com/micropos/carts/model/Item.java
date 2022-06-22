@@ -10,6 +10,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Item implements Serializable {
-    private Product product;
+    private String productId;
     private int quantity;
 }

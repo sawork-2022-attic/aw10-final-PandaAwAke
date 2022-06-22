@@ -2,10 +2,7 @@ package com.micropos.products.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.micropos.products.model.Product;
-import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

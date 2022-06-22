@@ -1,6 +1,6 @@
 package com.micropos.carts.web;
 
-import com.micropos.carts.model.Item;
+import com.micropos.products.model.Item;
 import com.micropos.carts.service.CartsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

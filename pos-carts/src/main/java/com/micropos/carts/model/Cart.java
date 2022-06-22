@@ -2,7 +2,6 @@ package com.micropos.carts.model;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.SessionScope;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ public class Cart implements Serializable {
     public double getTotal() {
         double total = 0;
         for (int i = 0; i < items.size(); i++) {
-            total += items.get(i).getQuantity() * items.get(i).getProduct().getPrice();
+            total += items.get(i).getQuantity() * items.get(i).getProductId().getPrice();
         }
         return total;
     }
