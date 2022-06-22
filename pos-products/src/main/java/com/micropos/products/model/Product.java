@@ -1,8 +1,11 @@
 package com.micropos.products.model;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Component
 public class Product implements Serializable {
     private String id;
     private String name;

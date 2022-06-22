@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="SQLRepositorySetting" class="com.micropos.products.repository.SQLRepository">
+        <property name="JDBC_DRIVER">
+            <value>com.mysql.cj.jdbc.Driver</value>
+        </property>
+        <property name="DB_URL">
+            <value>jdbc:mysql://localhost:3306/Amazon?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC"</value>
+        </property>
+        <property name="USER">
+            <value>root</value>
+        </property>
+        <property name="PASS">
+            <value>123456</value>
+        </property>
+        <property name="DATABASE_TABLE_NAME">
+            <value>meta_Gift_Cards</value>
+        </property>
+    </bean>
+</beans>

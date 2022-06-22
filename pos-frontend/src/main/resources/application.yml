@@ -1,0 +1,12 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: carts-service
+  session:
+    store-type: jdbc
+  h2:
+    console:
+      enabled: true
+      path: /h2-console

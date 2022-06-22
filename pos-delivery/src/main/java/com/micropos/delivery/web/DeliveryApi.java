@@ -21,7 +21,7 @@ public class DeliveryApi {
     }
 
     @RequestMapping(value = "orders/{orderId}", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<OrderResult> getOrderStatus(
+    public ResponseEntity<OrderResult> getOrderResult(
             @PathVariable(value = "orderId") int orderId
     ) {
         OrderResult result = deliveryService.getOrderResultById(orderId);

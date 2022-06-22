@@ -3,13 +3,11 @@ package com.micropos.orders.model;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Component
 public class Item implements Serializable {
-    @NotBlank
     private String productId;
     @Min(1)
     private int quantity;

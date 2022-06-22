@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="RemoteServices" class="com.micropos.carts.service.RemoteServicesImpl">
+        <property name="productServiceUrl">
+            <value>http://localhost:8002</value>
+        </property>
+        <property name="orderServiceUrl">
+            <value>http://localhost:8010</value>
+        </property>
+        <property name="deliveryServiceUrl">
+            <value>http://localhost:8020</value>
+        </property>
+    </bean>
+</beans>

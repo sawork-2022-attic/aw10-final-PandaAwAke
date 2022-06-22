@@ -2,7 +2,6 @@ package com.micropos.products.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.micropos.products.model.Product;
-import org.springframework.beans.factory.annotation.Autowired;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -21,21 +20,16 @@ public class SQLRepository implements ProductRepository {
 
     private List<Product> products = null;
 
-    @Autowired
+
     private String JDBC_DRIVER;
-    @Autowired
     private String DB_URL;
-    @Autowired
     private String USER;
-    @Autowired
     private String PASS;
-    @Autowired
     private String DATABASE_TABLE_NAME;
 
     private Connection connection = null;
     private int fetchedItems = 0;
     private static final int ITEMS_TO_FETCH_ONCE = 40;
-
 
 
     @Override
@@ -106,4 +100,44 @@ public class SQLRepository implements ProductRepository {
         return products;
     }
 
+
+    public String getJDBC_DRIVER() {
+        return JDBC_DRIVER;
+    }
+
+    public void setJDBC_DRIVER(String JDBC_DRIVER) {
+        this.JDBC_DRIVER = JDBC_DRIVER;
+    }
+
+    public String getDB_URL() {
+        return DB_URL;
+    }
+
+    public void setDB_URL(String DB_URL) {
+        this.DB_URL = DB_URL;
+    }
+
+    public String getUSER() {
+        return USER;
+    }
+
+    public void setUSER(String USER) {
+        this.USER = USER;
+    }
+
+    public String getPASS() {
+        return PASS;
+    }
+
+    public void setPASS(String PASS) {
+        this.PASS = PASS;
+    }
+
+    public String getDATABASE_TABLE_NAME() {
+        return DATABASE_TABLE_NAME;
+    }
+
+    public void setDATABASE_TABLE_NAME(String DATABASE_TABLE_NAME) {
+        this.DATABASE_TABLE_NAME = DATABASE_TABLE_NAME;
+    }
 }

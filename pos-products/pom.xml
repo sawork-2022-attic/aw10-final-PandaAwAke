@@ -85,18 +85,4 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.openapitools</groupId>
-                <artifactId>openapi-generator-maven-plugin</artifactId>
-                <configuration>
-                    <modelNameSuffix>Dto</modelNameSuffix>
-                    <apiPackage>com.micropos.products.api</apiPackage>
-                    <modelPackage>com.micropos.products.dto</modelPackage>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>
